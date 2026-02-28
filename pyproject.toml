@@ -1,7 +1,7 @@
 [project]
-name = "my_ai"
+name = "data_engineer_agent"
 version = "0.1.0"
-description = "my-ai using crewAI"
+description = "data-engineer-agent using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.14"
 dependencies = [
@@ -9,12 +9,12 @@ dependencies = [
 ]
 
 [project.scripts]
-my_ai = "my_ai.main:run"
-run_crew = "my_ai.main:run"
-train = "my_ai.main:train"
-replay = "my_ai.main:replay"
-test = "my_ai.main:test"
-run_with_trigger = "my_ai.main:run_with_trigger"
+data_engineer_agent = "data_engineer_agent.main:run"
+run_crew = "data_engineer_agent.main:run"
+train = "data_engineer_agent.main:train"
+replay = "data_engineer_agent.main:replay"
+test = "data_engineer_agent.main:test"
+run_with_trigger = "data_engineer_agent.main:run_with_trigger"
 
 [build-system]
 requires = ["hatchling"]

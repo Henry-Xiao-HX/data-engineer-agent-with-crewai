@@ -7,8 +7,8 @@ from typing import List
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
 
 @CrewBase
-class MyAi():
-    """MyAi crew"""
+class DataEngineerAgent():
+    """DataEngineerAgent crew"""
 
     agents: List[BaseAgent]
     tasks: List[Task]
@@ -51,7 +51,7 @@ class MyAi():
 
     @crew
     def crew(self) -> Crew:
-        """Creates the MyAi crew"""
+        """Creates the DataEngineerAgent crew"""
         # To learn how to add knowledge sources to your crew, check out the documentation:
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 

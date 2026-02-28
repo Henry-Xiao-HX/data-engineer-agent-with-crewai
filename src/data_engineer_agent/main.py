@@ -4,7 +4,7 @@ import warnings
 
 from datetime import datetime
 
-from my_ai.crew import MyAi
+from data_engineer_agent.crew import DataEngineerAgent
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -23,7 +23,7 @@ def run():
     }
 
     try:
-        MyAi().crew().kickoff(inputs=inputs)
+        DataEngineerAgent().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -37,7 +37,7 @@ def train():
         'current_year': str(datetime.now().year)
     }
     try:
-        MyAi().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        DataEngineerAgent().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -47,7 +47,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        MyAi().crew().replay(task_id=sys.argv[1])
+        DataEngineerAgent().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -62,7 +62,7 @@ def test():
     }
 
     try:
-        MyAi().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
+        DataEngineerAgent().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
@@ -88,7 +88,7 @@ def run_with_trigger():
     }
 
     try:
-        result = MyAi().crew().kickoff(inputs=inputs)
+        result = DataEngineerAgent().crew().kickoff(inputs=inputs)
         return result
     except Exception as e:
         raise Exception(f"An error occurred while running the crew with trigger: {e}")
