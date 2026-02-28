@@ -19,7 +19,8 @@ def run():
     """
     inputs = {
         'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'current_year': str(datetime.now().year),
+        'request': "what can you do for me?"
     }
 
     try:
@@ -83,8 +84,7 @@ def run_with_trigger():
 
     inputs = {
         "crewai_trigger_payload": trigger_payload,
-        "topic": "",
-        "current_year": ""
+        "current_year": "2026"
     }
 
     try:
