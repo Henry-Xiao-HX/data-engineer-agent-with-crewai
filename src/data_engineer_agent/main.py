@@ -18,9 +18,9 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
+        'topic': 'Data & AI',
         'current_year': str(datetime.now().year),
-        'request': "what can you do for me?"
+        'request': "What catalog is available to use?"
     }
 
     try:

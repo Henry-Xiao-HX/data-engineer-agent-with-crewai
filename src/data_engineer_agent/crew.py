@@ -26,22 +26,22 @@ class DataEngineerAgent:
             config=self.agents_config["data_engineer"],  # type: ignore[index]
             verbose=True,
             # llm = LLM(model="ollama/llama3", base_url="http://localhost:11434")
-            # mcps=[
-            #     MCPServerStdio(
-            #         command="uvx",
-            #         args=[
-            #             "ibm-watsonx-data-intelligence-mcp-server",
-            #             "--transport",
-            #             "stdio",
-            #         ],
-            #         env={
-            #             "DI_SERVICE_URL": "https://api.dataplatform.cloud.ibm.com",
-            #             "DI_APIKEY": "<data intelligence api key>",
-            #             "DI_ENV_MODE": "SaaS",
-            #             "LOG_FILE_PATH": "/tmp/di-mcp-server-logs",
-            #         },
-            #     )
-            # ],
+            mcps=[
+                MCPServerStdio(
+                    command="uvx",
+                    args=[
+                        "ibm-watsonx-data-intelligence-mcp-server",
+                        "--transport",
+                        "stdio",
+                    ],
+                    env={
+                        "DI_SERVICE_URL": "",
+                        "DI_APIKEY": "",
+                        "DI_ENV_MODE": "",
+                        "DI_USERNAME": "",
+                    },
+                )
+            ],
         )
 
     # To learn more about structured task outputs,
@@ -51,19 +51,22 @@ class DataEngineerAgent:
     def data_exploration_task(self) -> Task:
         return Task(
             config=self.tasks_config["data_exploration_task"],  # type: ignore[index]
+            human_input=True,
         )
 
     @task
     def data_query_task(self) -> Task:
         return Task(
             config=self.tasks_config["data_query_task"],  # type: ignore[index]
+            human_input=True,
         )
 
     @task
     def data_engineering_report_task(self) -> Task:
         return Task(
             config=self.tasks_config["data_engineering_report_task"],  # type: ignore[index]
-            output_file="report.md",
+            # output_file="report.md",
+            human_input=True,
         )
 
     @crew
@@ -76,8 +79,7 @@ class DataEngineerAgent:
             agents=self.agents,  # Automatically created by the @agent decorator
             tasks=self.tasks,  # Automatically created by the @task decorator
             process=Process.sequential,
-            verbose=True,
-            # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+            verbose=True,  # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
         )
 
 
